@@ -1,0 +1,117 @@
+  
+    body {
+    border: 10px solid #ecd7ff;
+    background-color: #bfc5e8;
+      overflow-x: hidden;
+       box-sizing: border-box;
+      margin: 0;
+      padding: 20px;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+    }
+
+    /* Full banner section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('../Images/Banner.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    /* Overlay for slight dim effect */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    /* Content over the image */
+    .hero-content {
+  
+      margin: 1px;
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 20px;
+      animation: fadeInUp 1.5s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-content h1 {
+      margin: 12px !important;
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #fff, #dcdcdc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideDown 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-content p {
+     margin: 0px Im !important;
+      margin-top: 20px;
+      font-size: 20px;
+      color: #eee;
+      line-height: 1.6;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 12px 26px;
+      border: 2px solid #fff;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      animation: fadeIn 2.5s ease forwards;
+      opacity: 0;
+    }
+
+    .btn:hover {
+      background: white;
+      color: #222;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 42px;
+      }
+      .hero-content p {
+        font-size: 17px;
+      }
+      .btn {
+        padding: 10px 22px;
+      }
+    }
