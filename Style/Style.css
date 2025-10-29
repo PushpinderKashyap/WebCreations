@@ -1,7 +1,7 @@
   
     body {
     border: 10px solid #ecd7ff;
-    background-color: #bfc5e8;
+    background-color: #bfc5e8 !important;
       overflow-x: hidden;
        box-sizing: border-box;
       margin: 0;
@@ -87,6 +87,16 @@
       background: white;
       color: #222;
     }
+
+    section.Education {
+    display: flex;
+    margin: 18px 0px;
+    padding: 15px;
+    border: 3px solid white;
+    background: #ffffff61;
+    border-style: double;
+    border-radius: 10px;
+}
 
     /* Animations */
     @keyframes fadeInUp {
