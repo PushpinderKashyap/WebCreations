@@ -296,6 +296,193 @@
     color: #000;
   }
 
+  /* Projects Section Base */
+.projects-section {
+    padding: 60px 20px;
+    background-color: #d5dbff;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border: 3px dashed;
+    border-color: white;
+    border-radius: 17px;
+}
+
+.projects-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Project Card */
+.project-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 350px;
+  text-align: left;
+  box-shadow: 10px 4px 19px 4px rgb(97 106 163);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.project-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Project Text */
+.project-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.project-tagline {
+  font-style: italic;
+  color: #ff6f61;
+  margin-bottom: 10px;
+}
+
+.project-desc {
+  font-size: 0.95em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.project-points {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  color: #444;
+}
+
+.project-points li {
+  margin-bottom: 8px;
+}
+
+.project-tech {
+  font-size: 0.85em;
+  color: #888;
+  font-style: italic;
+}
+
+/* Fade-in Animation on Scroll */
+.project-card.show {
+ /* transform: translateY(0);*/
+  opacity: 1;
+}
+p.project-desc:hover {
+    color: mediumvioletred;
+}
+.project-points li:hover {
+    color: #4f4fe4;
+}
+p.project-tech:Hover {
+    color: coral;
+}
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+  background-color: #fefcfb;
+  margin: 2% auto; 
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 618px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.close {
+  color: #ff6f61;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.cell {
+  width: 75px;
+  height: 75px;
+  background-color: #fff;
+  border: 2px solid #ff6f61;
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cell:hover {
+  background-color: #ffece6;
+}
+
+#winner {
+  font-size: 1.2em;
+  margin: 15px 0;
+  color: #ff6f61;
+}
+
+.game-btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+span#closeGame {
+    text-align: end;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
   @keyframes fadeIn {
     from {opacity: 0; transform: translateY(-10px);}
     to {opacity: 1; transform: translateY(0);}

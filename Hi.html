@@ -98,16 +98,102 @@
         <li class="yes">Shopify</li>
       </ul>
     </div>
-     <div class="card Golden" style="width: 345px;">
+     <div class="card Golden" style="width: 510px;">
       <h3>Certifications:</h3>
       <ul>
-        <li class="yes">Google Cloud Certified Associate Cloud Engineer, , </li>
+        <li class="yes">Google Cloud Certified Associate Cloud Engineer</li>
         <li class="yes">Microsoft Azure Fundamentals (Cloud Concepts)</li>
         <li class="yes">DevOps Foundations</li>
       </ul>
     </div>
   </div>
 </section>
+<section id="projects" class="projects-section">
+  <div class="container">
+    <h2><img src="./Images/task-management.png" style="width: 62px;height: 47px; margin-right: 17px;">My Projects</h2>
+    <p class="section-subtitle">A glimpse of the applications I have worked -> combining creativity, logic, and real-world impact.</p>
+
+    <div class="projects-grid">
+      
+      <!-- IMMS Project -->
+      <div class="project-card">
+        <h3>IMMS</h3>
+        <p class="project-tagline">Streamlining material management with automation</p>
+        <p class="project-desc">
+          A smart web solution to automate material procurement and inventory workflows across departments.
+        </p>
+        <ul class="project-points">
+          <li>Designed modules for stock tracking, purchase requests, and vendor management</li>
+          <li>Developed role-based dashboards for admin, manager, and store personnel</li>
+          <li>Implemented report generation and email notifications for efficiency</li>
+        </ul>
+        <p class="project-tech">Tech Stack: ASP.NET| MVC | WCF Web services| REST APIs | HTML | CSS | Javascript | Bootstrap | SQL Server | 3-Tier Architecture</p>
+      </div>
+
+      <!-- MGNREGS Project -->
+      <div class="project-card">
+        <h3>MGNREGS</h3>
+        <p class="project-tagline">Digitally empowering rural employment programs</p>
+        <p class="project-desc">
+          A platform to streamline job card, attendance, and wage processing for rural employment programs.
+        </p>
+        <ul class="project-points">
+          <li>Built job card registration and work allocation workflows</li>
+          <li>Added real-time reporting and audit trail for transparency</li>
+          <li>Ensured scalability and data integrity for government-level operations</li>
+        </ul>
+        <p class="project-tech">Tech Stack: ASP.NET| HTML | CSS | Javascript | Bootstrap || PL/SQL</p>
+      </div>
+
+      <!-- Happy Trails Project -->
+      <div class="project-card">
+        <h3>Happy Trails</h3>
+        <p class="project-tagline">Hotel booking made simple and efficient</p>
+        <p class="project-desc">
+          A hotel management and booking website that allows users to browse, book, and manage hotel reservations online.
+        </p>
+        <ul class="project-points">
+          <li>Developed user-friendly booking and search modules for hotels</li>
+          <li>Implemented admin panel for room management and booking tracking</li>
+          <li>Added interactive features using jQuery for a seamless experience</li>
+        </ul>
+        <p class="project-tech">Tech Stack: PHP | HTML | CSS | Bootstrap | jQuery</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section>
+  <!-- Button to open Tic Tac Toe -->
+<button id="openGame" class="game-btn"> * Try Tic Tac Toe!</button>
+
+<!-- Tic Tac Toe Modal -->
+<div id="gameModal" class="modal">
+  <div class="modal-content">
+    <span id="closeGame" class="close">&times;</span>
+    <h2><img src="./Images/tic-tac-toe.png" style="width: 62px;height: 47px; margin-right: 17px;"> Tic Tac Toe: Player vs Computer</h2>
+    <p>Player X vs Computer O</p>
+
+    <!-- Tic Tac Toe board -->
+    <div id="board" class="board">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+
+    <p id="winner"></p>
+    <button onclick="resetGame()" class="game-btn">Restart</button>
+  </div>
+</div>
+
+</section>
+
 
   <div class="popup" id="popup">
     <div class="popup-content">
@@ -149,5 +235,87 @@
     }
   });
 </script>
+<script>
+  // Fade-in cards when they come into view
+  const cards = document.querySelectorAll('.project-card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
+<script>
+/* Modal open/close */
+const modal = document.getElementById("gameModal");
+const btn = document.getElementById("openGame");
+const closeBtn = document.getElementById("closeGame");
+
+btn.onclick = () => modal.style.display = "block";
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (event) => { if(event.target == modal) modal.style.display = "none"; }
+
+/* Tic Tac Toe Logic */
+let board = ["","","","","","","","",""];
+const cells = document.querySelectorAll("#gameModal .cell");
+const winnerText = document.getElementById("winner");
+
+function checkWinner() {
+  const combos = [
+    [0,1,2],[3,4,5],[6,7,8],
+    [0,3,6],[1,4,7],[2,5,8],
+    [0,4,8],[2,4,6]
+  ];
+  for(let combo of combos){
+    const [a,b,c] = combo;
+    if(board[a] && board[a] === board[b] && board[a] === board[c]){
+      winnerText.innerText = "Winner: " + board[a];
+      return true;
+    }
+  }
+  if(!board.includes("")){
+    winnerText.innerText = "It's a Draw!";
+    return true;
+  }
+  return false;
+}
+
+function playerMove(idx) {
+  if(board[idx] === "" && !winnerText.innerText){
+    board[idx] = "X";
+    cells[idx].innerText = "X";
+    if(!checkWinner()) setTimeout(computerMove, 300);
+  }
+}
+
+function computerMove() {
+  const emptyCells = board.map((val, idx) => val === "" ? idx : null).filter(v => v !== null);
+  if(emptyCells.length === 0) return;
+  const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+  board[randomIndex] = "O";
+  cells[randomIndex].innerText = "O";
+  checkWinner();
+}
+
+cells.forEach(cell => {
+  cell.addEventListener("click", () => {
+    const idx = cell.getAttribute("data-index");
+    playerMove(idx);
+  });
+});
+
+function resetGame(){
+  board = ["","","","","","","","",""];
+  cells.forEach(cell => cell.innerText = "");
+  winnerText.innerText = "";
+}
+</script>
+
+
+
 </body>
 </html>
