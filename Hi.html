@@ -11,14 +11,23 @@
 </head>
 <body>
 
-  <section class="hero">
+  <section style="text-align: end;">
+ <div class="col-md-12 col-sm-12" >
+   <button class="ResumeClass" id="openPopup">Contact Info</button>
+      <a class="ResumeClass" target="_blank" rel="" href="./Files/Pushpinder Kaur.pdf">Download Resume</a>
+
+    </div>
+  </section>
+  <section class="hero col-md-12" style="display: grid;margin-top: 20px;">
+   
+    <div class="col-md-12 col-sm-12">
     <div class="hero-content">
       <p>Hello, I am</p>
       <h1>Pushpinder Kaur</h1>
       <p>Full Stack Developer | SQL Developer<br>
       Developer by skill, problem-solver by heart</p>
       <a href="#projects" class="btn">View My Work</a>
-    </div>
+    </div></div>
   </section>
   <section class="Education col-sm-12">
 <div class="col-sm-2" style="text-align: center;">
@@ -31,5 +40,114 @@
    </div>
   </section>
 
+  <section class="feature-list">
+  <div class="cards">
+    <div class="card orange">
+      <h3>Programming & Frameworks</h3>
+       <ul>
+        <li class="yes">C Sharp</li>
+ <li class="yes">Core Java</li>
+        <li class="yes">ASP.NET</li>
+        <li class="yes">MVC</li>
+        <li class="yes">Angular</li>
+
+         <li class="yes">Web API</li>
+        <li class="yes">WCF Web services</li>
+        <li class="yes">RESTful Services</li>
+          <li class="yes">Microservices</li>
+        <li class="yes">Entity Framework</li>
+      </ul>
+    </div>
+    <div class="card purple">
+      <h3>Frontend & Web</h3>
+      <ul>
+        <li class="yes">HTML5</li>
+        <li class="yes">CSS3</li>
+        <li class="yes">JavaScript</li>
+        <li class="yes">jQuery</li>
+         <li class="yes">Bootstrap</li>
+      </ul>
+    </div>
+    <div class="card green">
+      <h3>Databases & Tools:</h3>
+      <ul>
+        <li class="yes"> SQL Server</li>
+        <li class="yes">T-SQL</li>
+        <li class="yes">MongoDB</li>
+        <li class="yes">SSMS (SQL Server Management Studio)</li>
+      </ul>
+    </div>
+    <div class="card blue">
+      <h3>Cloud & DevOps</h3>
+     <ul>
+        <li class="yes">Azure Storage</li>
+        <li class="yes">CI/CD Pipelines</li>
+        <li class="yes">IIS</li>
+        <li class="yes">Version Control</li>
+        <li class="yes">DevOps practices</li>
+        <li class="yes">Postman</li>
+        <li class="yes">Agile methodologies</li>
+      </ul>
+    </div>
+    <div class="card red">
+      <h3>Development Tools and Platforms</h3>
+      <ul>
+        <li class="yes">Visual Studio</li>
+        <li class="yes">NetBeans</li>
+        <li class="yes">Eclipse</li>
+        <li class="yes">Shopify</li>
+      </ul>
+    </div>
+     <div class="card Golden" style="width: 345px;">
+      <h3>Certifications:</h3>
+      <ul>
+        <li class="yes">Google Cloud Certified Associate Cloud Engineer, , </li>
+        <li class="yes">Microsoft Azure Fundamentals (Cloud Concepts)</li>
+        <li class="yes">DevOps Foundations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <p style="text-align: center;"><img style="width: 55px;height: 52px;" src="./Images/groundhog.png" /> </p>
+          <p>
+        Thanks for stopping by! I'm <strong>Pushpinder Kaur</strong>, a passionate 
+        <strong>Full Stack Developer</strong> who loves solving real-world problems with clean code.
+      </p>
+      <p>
+        If you have an opportunity, a cool project, or just want to say hi — I’m all ears!
+      </p>
+      <p><strong>Email:</strong> 01pushpinderkaur@gmail.com</p>
+      <p><strong>LinkedIn:</strong> <a target="_blank" href="https://www.linkedin.com/in/pushpinder-kaur-a44451150/">linkedin/Pushpinder</a></p>
+     <p><strong>GitHub:</strong> <a target="_blank" href="https://github.com/PushpinderKashyap">github/Pushpinder</a></p>
+    </div>
+  </div>
+
+  <script>
+  // Get elements
+  const openPopup = document.getElementById("openPopup");
+  const closePopup = document.getElementById("closePopup");
+  const popup = document.getElementById("popup");
+
+  // Show popup
+  openPopup.addEventListener("click", () => {
+    popup.style.display = "flex";
+  });
+
+  // Close popup
+  closePopup.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+
+  // Close when clicking outside the box
+  window.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
