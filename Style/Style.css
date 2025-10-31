@@ -474,6 +474,11 @@ span#closeGame {
     text-align: end;
     }
 
+    a.ResumeClass.Resumee:hover {
+    background: #ad9bc5;
+    color: white;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .projects-grid {
