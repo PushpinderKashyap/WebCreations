@@ -7,10 +7,11 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-           // "url": "http://localhost:8080",
-           // "webRoot": "${workspaceFolder}",
-           "file":"D:\\VsCodes\\WebCreations\\Index.html"
+              "name": "Launch Chrome against Live Server",
+            "url": "http://127.0.0.1:5500/Index.html",
+            "webRoot": "${workspaceFolder}"
+           //"file":"D:\\VsCodes\\WebCreations\\Index.html"
+        
 
         }
     ]
