@@ -1,116 +1,138 @@
+/* Common Styles */
+.weatherTab {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(356deg, #86f8ff, #155abb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  height: 150px;
+}
+.CityFactsTab {
+     font-family: 'Poppins', sans-serif;
+  background: linear-gradient(356deg, #fe823e, #bb1527);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  height: 150px;
 
-   
-   .weatherTab {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(356deg, #86f8ff, #155abb);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 16px;
 }
 
-
-    button.WeatherButton {
-    background: none;
-    border: none;
-    box-shadow: none;
-    height: 138px;
-    font-size: 20px;
-     color: white;     
-      padding: 12px 25px;
-      font-size: 18px;
-      border-radius: 10px;
-      cursor: pointer;   
-      transition: 0.3s;
+button.WeatherButton, button.CityFactsButton {
+  background: none;
+  border: none;
+  height: 138px;
+  font-size: 18px;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
- button.WeatherButton:hover {
-    transform: translateY(-2px);
-    color: black;
+
+button.WeatherButton:hover, button.CityFactsButton:hover {
+  transform: translateY(-2px);
+  color: black;
 }
-    /* Popup Overlay */
-    .overlay {
-            overflow: scroll;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      animation: fadeIn 0.4s ease;
-    }
 
-    /* Popup Box */
-    .popup {
-      background: linear-gradient(185deg, #86f8ff, #4d91f0);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      width: 572px;
-      color: #fff;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      transform: scale(0.8);
-      transition: 0.3s;
-      animation: zoomIn 0.4s forwards;
-    }
+/* Weather Popup */
+.overlay {
+  overflow: auto;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
 
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-    }
+.popup {
+  background: linear-gradient(185deg, #86f8ff, #4d91f0);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  width: 550px;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  animation: zoomIn 0.4s forwards;
+  position: relative;
+}
 
-    input {
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      width: 80%;
-      text-align: center;
-      outline: none;
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
 
-    .search-btn {
-      background: #0078ff;
-      color: white;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+/* City Facts Popup */
+.cityFactsOverlay {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+}
 
-    .search-btn:hover {
-      background: #005fcc;
-    }
+.cityFactsOverlay .modal-content {
+    text-align: center;
+  background:linear-gradient(176deg, #fe823e, #cd949a);
+  padding: 20px 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 480px;
+  animation: fadeIn 0.4s;
+      height: 540px;
+    overflow: auto;
+}
 
-    img {
-      width: 80px;
-      height: 80px;
-    }
+.cityFactsOverlay .close {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: end;
+    cursor: pointer;
+}
 
-    .temp {
-      font-size: 2.2rem;
-      font-weight: bold;
-      margin: 5px 0;
-    }
+.cityFactsOverlay .close:hover {
+  color: black;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+.flag {
+  width: 70px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
 
-    @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
+.loading {
+  display: none;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #555;
+}
 
+/* Animations */
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
